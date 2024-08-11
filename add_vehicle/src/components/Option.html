@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            width: 350px;
+            position: relative;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-field label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .input-field select, .input-field input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .checkbox-field {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-field input {
+            margin-right: 10px;
+        }
+
+        .proceed-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .chat-box {
+            position: absolute;
+            left: 10px;
+            bottom: 60px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .chat-box img {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+        }
+
+        .country-selection {
+            font-size: 14px;
+            margin-top: 10px;
+            color: lightgray;
+        }
+
+        .country-selection img {
+            width: 20px;
+            height: 15px;
+            margin-right: 5px;
+        }
+
+        .country-selection select {
+            background: none;
+            border: none;
+            color: lightgray;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .country-selection select option {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <title>Form with Proceed and Help</title>
+</head>
+<body>
+    <div class="container">
+        <div class="input-field">
+            <label for="port-type">Select charging port type</label>
+            <select id="port-type">
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+                <option value="chademo">CHAdeMO</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="input-field">
+            <label for="manufacture-year">Vehicle's year of manufacture</label>
+            <input type="text" id="manufacture-year" value="2024">
+        </div>
+
+        <div class="checkbox-field">
+            <input type="checkbox" id="skip">
+            <label for="skip">Skip for now</label>
+        </div>
+
+        <button class="proceed-btn">Proceed</button>
+        <br><br><br><br>
+        
+        <div class="chat-box">
+            <img src="chatbox.png" alt="Chat Icon">
+              <!-- Add chat box here -->
+
+            <span>Need help?</span>
+        </div>
+        
+        <div class="country-selection">
+            Vehicles shown are based on: 
+            <img src="australia_flag.png" alt="Australia Flag">
+            <select>
+                <option value="australia">Australia</option>
+                <!-- Add other countries here -->
+            </select>
+        </div>
+    </div>
+</body>
+</html>

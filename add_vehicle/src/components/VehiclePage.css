@@ -124,3 +124,27 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .option.container {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        color: white;
+        text-align: center;
+        width: 350px;
+        position: relative;
+    }
+
+    /* Add the rest of the CSS here */

@@ -76,4 +76,56 @@ const VehiclePage = () => {
     );
 };
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create the container div
+    const containerDiv = document.createElement('div');
+    containerDiv.className = 'option.container';
+
+    // Add the HTML structure to the container
+    containerDiv.innerHTML = `
+        <div class="input-field">
+            <label for="port-type">Select charging port type</label>
+            <select id="port-type">
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+                <option value="chademo">CHAdeMO</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="input-field">
+            <label for="manufacture-year">Vehicle's year of manufacture</label>
+            <input type="text" id="manufacture-year" value="2024">
+        </div>
+
+        <div class="checkbox-field">
+            <input type="checkbox" id="skip">
+            <label for="skip">Skip for now</label>
+        </div>
+
+        <button class="proceed-btn">Proceed</button>
+        <br><br><br><br>
+        
+        <div class="chat-box">
+            <img src="chatbox.png" alt="Chat Icon">
+            <span>Need help?</span>
+        </div>
+        
+        <div class="country-selection">
+            Vehicles shown are based on: 
+            <img src="australia_flag.png" alt="Australia Flag">
+            <select>
+                <option value="australia">Australia</option>
+                <!-- Add other countries here -->
+            </select>
+        </div>
+    `;
+
+    // Find the element in your existing HTML where you want to insert this form
+    const appDiv = document.getElementById('app');
+
+    // Insert the container into the selected element
+    appDiv.appendChild(containerDiv);
+});
 export default VehiclePage;
