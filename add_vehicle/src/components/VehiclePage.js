@@ -6,8 +6,10 @@ const VehiclePage = () => {
     const [search, setSearch] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedYear, setSelectedYear] = useState('');
+    const [skipForNow, setSkipForNow] = useState(false);
 
-    const vehicles = ["Toyota Camry", "Honda Accord", "Tesla Model 3", "Ford Mustang", "BMW X5"]; // Example list
+    const vehicles = ["Audi e-tron", "Polestar", "Tesla Model 3", "Tesla Model S", "Tesla Model Y"]; // Example list
 
     const handleSearchChange = (e) => {
         const value = e.target.value;
@@ -23,11 +25,22 @@ const VehiclePage = () => {
         setIsModalOpen(false);
     };
 
+    const handleYearChange = (e) => {
+        setSelectedYear(e.target.value);
+    };
+
+    const handleSkipChange = (e) => {
+        setSkipForNow(e.target.checked);
+    };
+
+    const years = [2015,2016,2017,2018,2019,2020,2021,2023,2024]
+    const chargingPortTypes = ["Type 1", "Type 2", "CHAdeMO", "CCS", "Tesla Supercharger"]; // Example options
+
     return (
         <div className="vehicle-page-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-i_PAySQIKQLQgVrcEnDEs4yQkAhUs4c1w&s" alt="Background" className="background-image" />
-            <img src="https://www.eu-startups.com/wp-content/uploads/2020/08/logo_evway-500x500.png" alt="Company Logo" className="logo" />
+            <img src="https://cdn-ebhfi.nitrocdn.com/yOpEcrJDkQQHjHuEMVqoqoMiKoXfWijL/assets/images/optimized/rev-25f93df/evpowerhouse.com.au/wp-content/uploads/2023/02/Teison-charging-partner-681x1024.webp" className="background-image" />
             <div className="content">
+                <img src="https://www.eu-startups.com/wp-content/uploads/2020/08/logo_evway-500x500.png" className="logo" />
                 <h1>Add Your Vehicle</h1>
                 <p className="description">Please enter your vehicle information below.</p>
                 <div className="search-field">
@@ -46,26 +59,67 @@ const VehiclePage = () => {
                     )}
                 </div>
                 <p className="small-description">
-                    Need more information? <span className="link" onClick={openModal}>Click here</span>
+                Not seeing your vehicle here? Click the link
                 </p>
+
+                {/* New Additions */}
+                <label>
+                    Select Charging Port Type
+                    <select>
+                        {chargingPortTypes.map((type, index) => (
+                            <option key={index} value={type}>{type}</option>
+                        ))}
+                    </select>
+                </label>
+
+                <label>
+                    Vehicle Date of Manufacture
+                    <select value={selectedYear} onChange={handleYearChange}>
+                        <option value="">Select Year</option>
+                        {years.map((year, index) => (
+                            <option key={index} value={year}>{year}</option>
+                        ))}
+                    </select>
+                </label>
+
+                <label>
+                    Skip for Now
+                    <input
+                        type="checkbox"
+                        checked={skipForNow}
+                        onChange={handleSkipChange}
+                    />
+                </label>
+
+                <button type="button" className='just-button'>Proceed</button>
+
+                <label>Vehicles shown are based on: Australia</label>
+
+                {/* Image link at the bottom left */}
+                <div className="bottom-left">
+                    <img src="https://www.iconpacks.net/icons/1/free-help-icon-1160-thumb.png" className="link-image" onClick={openModal}/>
+
+                </div>
+
             </div>
+
             {isModalOpen && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h2>Additional Information</h2>
+                        <h2>Vehicle Information</h2>
                         <p>Please fill out the details below.</p>
                         <form>
                             <label>
-                                Field 1
-                                <input type="text" />
+                                Preferred Contact Method  
+                                <input type="text" placeholder='Phone/Email'/>
                             </label>
                             <label>
-                                Field 2
-                                <input type="text" />
+                                Vehicle Name/Type  
+                                <input type="text" placeholder='Vehicle name/type'/>
                             </label>
                             <label>
-                                Field 3
-                                <input type="text" />
+                                Year of Manufacture  
+                                <input type="text" placeholder='Year'/>
                             </label>
                             <button type="button" onClick={closeModal}>Submit</button>
                         </form>
@@ -76,56 +130,4 @@ const VehiclePage = () => {
     );
 };
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Create the container div
-    const containerDiv = document.createElement('div');
-    containerDiv.className = 'option.container';
-
-    // Add the HTML structure to the container
-    containerDiv.innerHTML = `
-        <div class="input-field">
-            <label for="port-type">Select charging port type</label>
-            <select id="port-type">
-                <option value="type1">Type 1</option>
-                <option value="type2">Type 2</option>
-                <option value="chademo">CHAdeMO</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-
-        <div class="input-field">
-            <label for="manufacture-year">Vehicle's year of manufacture</label>
-            <input type="text" id="manufacture-year" value="2024">
-        </div>
-
-        <div class="checkbox-field">
-            <input type="checkbox" id="skip">
-            <label for="skip">Skip for now</label>
-        </div>
-
-        <button class="proceed-btn">Proceed</button>
-        <br><br><br><br>
-        
-        <div class="chat-box">
-            <img src="chatbox.png" alt="Chat Icon">
-            <span>Need help?</span>
-        </div>
-        
-        <div class="country-selection">
-            Vehicles shown are based on: 
-            <img src="australia_flag.png" alt="Australia Flag">
-            <select>
-                <option value="australia">Australia</option>
-                <!-- Add other countries here -->
-            </select>
-        </div>
-    `;
-
-    // Find the element in your existing HTML where you want to insert this form
-    const appDiv = document.getElementById('app');
-
-    // Insert the container into the selected element
-    appDiv.appendChild(containerDiv);
-});
 export default VehiclePage;
