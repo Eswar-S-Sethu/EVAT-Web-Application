@@ -28,7 +28,6 @@ const VehiclePage = () => {
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-i_PAySQIKQLQgVrcEnDEs4yQkAhUs4c1w&s" alt="Background" className="background-image" />
             <img src="https://www.eu-startups.com/wp-content/uploads/2020/08/logo_evway-500x500.png" alt="Company Logo" className="logo" />
             <div className="content">
-                <img src="/path-to-your-logo.png" alt="Company Logo" className="logo" />
                 <h1>Add Your Vehicle</h1>
                 <p className="description">Please enter your vehicle information below.</p>
                 <div className="search-field">
