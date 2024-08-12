@@ -38,9 +38,9 @@ const VehiclePage = () => {
 
     return (
         <div className="vehicle-page-container">
-            <img src="https://cdn-ebhfi.nitrocdn.com/yOpEcrJDkQQHjHuEMVqoqoMiKoXfWijL/assets/images/optimized/rev-25f93df/evpowerhouse.com.au/wp-content/uploads/2023/02/Teison-charging-partner-681x1024.webp" className="background-image" />
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*Is_Ce9vcfmttPtr-z6nqUA.png" className="background-image" />
             <div className="content">
-                <img src="/home/eswar/EVAT-Web-Application/add_vehicle/src/logo.jpeg" className="logo" />
+                <img src="add_vehicle/src/logo.jpeg" className="logo" />
                 <h1>Add Your Vehicle</h1>
                 <p className="description">Please enter your vehicle information below.</p>
                 <div className="search-field">
@@ -59,7 +59,7 @@ const VehiclePage = () => {
                     )}
                 </div>
                 <p className="small-description">
-                Not seeing your vehicle here? Click the link
+                Not seeing your vehicle here? Click the link below
                 </p>
 
                 {/* New Additions */}
@@ -121,6 +121,7 @@ const VehiclePage = () => {
                                 Year of Manufacture  
                                 <input type="text" placeholder='Year'/>
                             </label>
+                            <p>Thank you for your patience! We will locate your car and add it to our system. Once that’s done, we’ll notify you. In the meantime, you can skip this page and proceed.</p>
                             <button type="button" onClick={closeModal}>Submit</button>
                         </form>
                     </div>

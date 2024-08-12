@@ -11,6 +11,9 @@
     max-width: 420px; /* Width of a typical mobile device */
     margin: 0 auto;
     overflow: hidden;
+    font-size: medium;
+    color: white;
+    
 }
 
 .background-image {
