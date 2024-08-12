@@ -40,7 +40,7 @@ const VehiclePage = () => {
         <div className="vehicle-page-container">
             <img src="https://cdn-ebhfi.nitrocdn.com/yOpEcrJDkQQHjHuEMVqoqoMiKoXfWijL/assets/images/optimized/rev-25f93df/evpowerhouse.com.au/wp-content/uploads/2023/02/Teison-charging-partner-681x1024.webp" className="background-image" />
             <div className="content">
-                <img src="https://ibb.co/GHcs1JT" className="logo" />
+                <img src="/home/eswar/EVAT-Web-Application/add_vehicle/src/logo.jpeg" className="logo" />
                 <h1>Add Your Vehicle</h1>
                 <p className="description">Please enter your vehicle information below.</p>
                 <div className="search-field">
