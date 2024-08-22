@@ -15,6 +15,7 @@ const VehiclePage = () => {
         const value = e.target.value;
         setSearch(value);
         setSuggestions(vehicles.filter(vehicle => vehicle.toLowerCase().includes(value.toLowerCase())));
+        
     };
 
     const openModal = () => {
@@ -38,9 +39,9 @@ const VehiclePage = () => {
 
     return (
         <div className="vehicle-page-container">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*Is_Ce9vcfmttPtr-z6nqUA.png" className="background-image" />
+            <img src="https://i.ibb.co/yRY5hWd/addvehiclebg.jpg" className="background-image" />
             <div className="content">
-                <img src="add_vehicle/src/logo.jpeg" className="logo" />
+                <img src="https://i.ibb.co/Q6dRkQN/companylogo.jpg" className="logo" />
                 <h1>Add Your Vehicle</h1>
                 <p className="description">Please enter your vehicle information below.</p>
                 <div className="search-field">
@@ -97,7 +98,7 @@ const VehiclePage = () => {
 
                 {/* Image link at the bottom left */}
                 <div className="bottom-left">
-                    <img src="https://www.iconpacks.net/icons/1/free-help-icon-1160-thumb.png" className="link-image" onClick={openModal}/>
+                    <img src="https://i.ibb.co/qB7vfb3/Needhelp.png" className="link-image" onClick={openModal}/>
 
                 </div>
 
