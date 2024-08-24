@@ -177,3 +177,6 @@ label input[type="checkbox"] {
     width: 40%;
 }
 
+.description{
+    font-style: italic;
+}
