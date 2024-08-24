@@ -42,14 +42,18 @@ const VehiclePage = () => {
             <img src="https://i.ibb.co/yRY5hWd/addvehiclebg.jpg" className="background-image" />
             <div className="content">
                 <img src="https://i.ibb.co/Q6dRkQN/companylogo.jpg" className="logo" />
-                <h1>Add Your Vehicle</h1>
-                <p className="description">Please enter your vehicle information below.</p>
+                <h1>Add Your Electric Vehicle</h1>
+                <p className="description">Your  vehicle is used to assess the compatibility of  charging stations.</p>
                 <div className="search-field">
                     <input
                         type="text"
                         placeholder="Type your vehicle..."
                         value={search}
                         onChange={handleSearchChange}
+                    />
+                    <input 
+                    type="text"
+                    placeholder="Vehicle type?"
                     />
                     {suggestions.length > 0 && (
                         <ul className="suggestions">
@@ -59,14 +63,11 @@ const VehiclePage = () => {
                         </ul>
                     )}
                 </div>
-                <p className="small-description">
-                Not seeing your vehicle here? Click the link below
-                </p>
 
                 {/* New Additions */}
                 <label>
-                    Select Charging Port Type
-                    <select>
+                    Select Charging Port Type<br></br>
+                    <select class="options-style">
                         {chargingPortTypes.map((type, index) => (
                             <option key={index} value={type}>{type}</option>
                         ))}
@@ -74,13 +75,13 @@ const VehiclePage = () => {
                 </label>
 
                 <label>
-                    Vehicle Date of Manufacture
-                    <select value={selectedYear} onChange={handleYearChange}>
-                        <option value="">Select Year</option>
-                        {years.map((year, index) => (
-                            <option key={index} value={year}>{year}</option>
-                        ))}
-                    </select>
+                    Vehicle Date of Manufacture<br></br>
+                    <input
+                        type="date"
+                        value={selectedYear}
+                        onChange={handleYearChange}
+                        className="options-style"
+                    />
                 </label>
 
                 <label>
@@ -89,15 +90,21 @@ const VehiclePage = () => {
                         type="checkbox"
                         checked={skipForNow}
                         onChange={handleSkipChange}
+                        className='green-checkbox'
                     />
                 </label>
 
                 <button type="button" className='just-button'>Proceed</button>
 
-                <label>Vehicles shown are based on: Australia</label>
+                <label>Vehicles shown are based on: <br></br>
+                <img src={require('/home/eswar/Documents/Deakin_Chameleon_Project/EVAT-Web-Application/add_vehicle/src/Flag of australia.png')} alt="Australia Flag" style={{ width: '20px', height: 'auto', marginLeft: '5px' }} />
+                Australia
+                </label>
+
 
                 {/* Image link at the bottom left */}
                 <div className="bottom-left">
+                    <p>Need Help?</p>
                     <img src="https://i.ibb.co/qB7vfb3/Needhelp.png" className="link-image" onClick={openModal}/>
 
                 </div>
@@ -111,15 +118,15 @@ const VehiclePage = () => {
                         <p>Please fill out the details below.</p>
                         <form>
                             <label>
-                                Preferred Contact Method  
+                                Preferred Contact Method  <br></br>
                                 <input type="text" placeholder='Phone/Email'/>
                             </label>
                             <label>
-                                Vehicle Name/Type  
+                                Vehicle Name/Type  <br></br>
                                 <input type="text" placeholder='Vehicle name/type'/>
                             </label>
                             <label>
-                                Year of Manufacture  
+                                Year of Manufacture  <br></br>
                                 <input type="text" placeholder='Year'/>
                             </label>
                             <p>Thank you for your patience! We will locate your car and add it to our system. Once that’s done, we’ll notify you. In the meantime, you can skip this page and proceed.</p>
