@@ -84,14 +84,14 @@ const VehiclePage = () => {
                     />
                 </label>
 
-                <label>
+               <label className="checkbox-container">
                     Skip for Now
-                    <input
-                        type="checkbox"
-                        checked={skipForNow}
-                        onChange={handleSkipChange}
-                        className='green-checkbox'
-                    />
+                <input
+                    type="checkbox"
+                    checked={skipForNow}
+                    onChange={handleSkipChange}
+                    className="green-checkbox"
+                />
                 </label>
 
                 <button type="button" className='just-button'>Proceed</button>
