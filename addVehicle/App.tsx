@@ -15,6 +15,20 @@ const VehiclePage = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Specify type
     const [selectedYear, setSelectedYear] = useState<string>(''); // Specify type
     const [skipForNow, setSkipForNow] = useState<boolean>(false); // Specify type
+    const [isSuggestionVisible, setIsSuggestionVisible] = useState(true); // Hide suggestions after selection
+    const [isSuggestionTextVisible, setIsSuggestionTextVisible] = useState(false); // Show suggestions after search input reselection
+
+    // Handler function to select and hide suggestions
+    const handleSuggestionPress = (suggestion: string) => {
+        setSearch(suggestion);
+        setIsSuggestionVisible(false);
+    };
+
+    // Handler function to show suggestions again
+    const showSuggestions = () => {
+        setIsSuggestionVisible(true);
+        setIsSuggestionTextVisible(false);
+    };
 
     const vehicles: string[] = ["Audi e-tron", "Polestar", "Tesla Model 3", "Tesla Model S", "Tesla Model Y"]; // Example list
 
@@ -38,6 +52,13 @@ const VehiclePage = () => {
     const handleSkipChange = (value: boolean) => {
         setSkipForNow(value);
     };
+    const handleSelectSuggestion = (value: string) => {
+        console.log(value);
+        setInputText(value);
+        setSuggestions([]);
+      };
+    
+
 
     const chargingPortTypes: string[] = ["Type 1", "Type 2", "CHAdeMO", "CCS", "Tesla Supercharger"]; // Example options
 
@@ -54,20 +75,22 @@ const VehiclePage = () => {
                         placeholder="Type your vehicle..."
                         value={search}
                         onChangeText={handleSearchChange}
+                        onPress={showSuggestions}
                     />
+                    {suggestions.length > 0 && (
+                        <View style={styles.suggestions}>
+                            {suggestions.map((suggestion, index) => isSuggestionVisible && (
+                                <TouchableOpacity key={index} onPress={() => handleSuggestionPress(suggestion)}>
+                                    <Text key={index} style={styles.suggestion}>{suggestion}</Text>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+                    )}
                     <TextInput
                         style={styles.input}
                         placeholder="Vehicle type?"
                     />
-                    {suggestions.length > 0 && (
-                        <View style={styles.suggestions}>
-                            {suggestions.map((suggestion, index) => (
-                                <Text key={index} style={styles.suggestion}>{suggestion}</Text>
-                            ))}
-                        </View>
-                    )}
                 </View>
-
                 <View style={styles.label}>
                     <Text>Select Charging Port Type</Text>
                     <Picker style={styles.picker}>
@@ -192,7 +215,8 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: 'white',
         borderRadius: 5,
-        marginTop: 5,
+        marginTop: 50,
+        zIndex: 9999,
     },
     suggestion: {
         padding: 10,
@@ -260,3 +284,6 @@ const styles = StyleSheet.create({
 });
 
 export default VehiclePage;
+function setInputText(text: any) {
+    throw new Error('Function not implemented.');
+}
